@@ -1,0 +1,72 @@
+def negative_assert_invalid_parameter(name):
+    response = sender_stand_request.post_new_client_kit(name)  # Guarda el resultado de llamar a la función a la
+    # variable "response"
+    assert response.status_code == 400  # Comprueba si el atributo "code" en el cuerpo de respuesta es 400
+    assert response.json()["code"] == 400  # Comprueba si el atributo "code" en el cuerpo de respuesta es 400.
+    assert response.json()["message"] == "No se han aprobado todos los parámetros requeridos"
+
+
+#TEST DE PRUEBA
+def test_create_new_kit():  # TEST DE PRUEBA PARRA BORRAR
+    token = sender_stand_request.get_new_user_token()  # Obtiene el token de autorización del usuario
+    kit_body = get_kit_body("AAAA")  # Prueba el valor especificado en parentesis
+    response = sender_stand_request.post_new_client_kit(token, kit_body)  # Crea un nuevo kit con el token y el cuerpo
+    # del kit que trae como base desde el otro archivo
+    return response
+
+response = test_create_new_kit() # no tiene ningun valor adentro porque en la función tampoco se dejó ningun valor
+print (response.status_code)
+print(response.json())
+
+
+#EJECUCIÓN DE PRUEBAS
+
+
+
+kit_body_test = [
+    {"name": "a", "expected_status": 201},
+    {"name": "AbcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdAbcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabC", "expected_status": 201},
+    {"name": "", "expected_status": 400},
+    {"name": "BAbcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdAbcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcD", "expected_status": 400},
+    {"name": "№%@\"", "expected_status": 201},
+    {"name": " A Aaa ", "expected_status": 201},
+    {"name": "123", "expected_status": 201},
+    {"name": None, "expected_status": 400},
+    {"name": 123, "expected_status": 400}
+]
+
+
+# "name": "Mi conjunto de prueba",
+# "one_character_name" = "a",
+# "max_character_length_name" = "Abcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabc
+# dabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcda
+# bcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdAbcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabc
+# dabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcd
+# abcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabC",
+
+zero_character_length_name = ""
+# test4
+max_character_length_plus_1_name = "Abcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabc\
+dabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdab\
+cdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdAbcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcda\
+bcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcd\
+abcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcD"
+
+# test5
+special_character_name = "\"№%@,"
+# test6
+spaces_in_name_field = "A Aaa"
+# test7
+numbers_in_name_field_name = "123"
+# test8
+missing_parameter_name = ""
+# test9
+different_parameter_type_name = 123
+
+
+# introducir el token dentro del headers
+# 1. crear otra variable
+# 2. intoducir un nuevo elemento dentro del jason dentro de la funión del sender_stand en la funión
+# 3. crear
+
+# "Authorization": "Bearer " + "authToken"
