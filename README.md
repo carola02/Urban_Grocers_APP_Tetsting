@@ -19,6 +19,7 @@ La escritura de datos se realiza en formato Json como está descrito en el APIdo
 3. Tercer archivo: sender_stand_request.py
 
 Este archivo recoge las funciones principales de conexión:
+
 A. post_new_user(body):
 * Esta función realiza la conexión al servidor y crea un nuevo usuario.
 * El argumento 'body' es el cuerpo de la solicitud que se enviará al servidor para crear un nuevo usuario.
