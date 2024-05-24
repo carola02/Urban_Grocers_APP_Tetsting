@@ -1,0 +1,14 @@
+def positive_assert_201(name):
+    kit_body = get_kit_body(name)  # El cuerpo de la solicitud actualizada se guarda en la variable user_body
+    token = sender_stand_request.get_new_user_token()  # Obtiene el token de autorización del usuario
+    kit_response = sender_stand_request.post_new_client_kit(token, kit_body)  # Envía la solicitud para crear un nuevo
+    # kit con el token del usuario creado
+    # usuario/a se guarda en la variable user_response
+    assert kit_response.status_code == 201  # Comprueba si el código de estado es 201
+    # assert kit_response.json()["authToken"] != ""
+    # creation_kit_table_response = sender_stand_request.get_creation_kit_table()
+    # String que debe estar en el cuerpo de respuesta
+    # str_kit = data.kit_body["name"] + "," + data.kit_body["productsList"] + "," \
+    #          + data.kit_body["id"] + ",,," + data.kit_body["productsCount"]
+    # assert creation_kit_table_response.text.count(str_kit) == 1
+
