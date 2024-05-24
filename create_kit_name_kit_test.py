@@ -20,12 +20,6 @@ def positive_assert_201(name):
     # kit con el token del usuario creado
     # usuario/a se guarda en la variable user_response
     assert kit_response.status_code == 201  # Comprueba si el código de estado es 201
-    # assert kit_response.json()["authToken"] != ""
-    # creation_kit_table_response = sender_stand_request.get_creation_kit_table()
-    # String que debe estar en el cuerpo de respuesta
-    # str_kit = data.kit_body["name"] + "," + data.kit_body["productsList"] + "," \
-    #          + data.kit_body["id"] + ",,," + data.kit_body["productsCount"]
-    # assert creation_kit_table_response.text.count(str_kit) == 1
 
 
 def negative_assert(name):
@@ -33,9 +27,6 @@ def negative_assert(name):
     kit_body = get_kit_body(name)  # Utiliza el nombre proporcionado para obtener el cuerpo del kit
     kit_negative_response = sender_stand_request.post_new_client_kit(token, kit_body)
     assert kit_negative_response.status_code == 400  # Verifica que la solicitud no se haya realizado con éxito
-    # código de estado diferente de 201)
-    # assert kit_negative_response.json()["code"] == 400    # Comprueba si el código de error en la respuesta es 400
-    # assert kit_negative_response.json()["message"] == "Kit name's is empty"
 
 
 # Código respuesta: 201 Campo "name" del cuerpo de la respuesta coincide con el campo "name" del cuerpo de la solicitud

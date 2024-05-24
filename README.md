@@ -1,5 +1,6 @@
 # Proyecto Urban Grocers 
 CONTENIDO DEL ARCHIVO README
+Prueba de cambio
 El objetivo de este proyecto es implementar pruebas automatizadas para la API de Urban Grocers por medio de Pytest. Las pruebas se centran en la funcionalidad de creación de kits, verificando diversos casos en la creación del nombre dle kit 
 
 

@@ -46,11 +46,3 @@ response = post_new_client_kit(token, data.kit_body)  # Crea un nuevo kit utiliz
 # y el cuerpo importado del archivo data
 print(response.status_code)
 print(response.json())
-
-
-def get_creation_kit_table():
-    return requests.get(configuration.URL_SERVICE + configuration.KIT_TABLE_MODEL)
-
-
-response = get_creation_kit_table()
-print(response.status_code)

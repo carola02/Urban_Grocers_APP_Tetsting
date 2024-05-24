@@ -28,3 +28,6 @@ kit_body = {
        "id": 7,
        "productsCount": 0
 }
+
+# Ver adentro del diccionario
+# print(kit_body["card"]["name"])
