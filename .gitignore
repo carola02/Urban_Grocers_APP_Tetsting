@@ -1,5 +1,7 @@
-.pytest/
-venv/
-.idea/
-.pytest_cache/
-__pycache__/
+Este archivo se ha modificado para consulta de usuario externos
+
+#.pytest/
+#venv/
+#.idea/
+#.pytest_cache/
+#__pycache__/
